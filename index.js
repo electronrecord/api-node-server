@@ -17,6 +17,15 @@ const posts = [
   }
 ]
 
+app.post('/api/login', function (req, res) {
+  if (req.body.email === 'a' && req.body.password === '1') {
+    res.send({
+      name: 'Cristian',
+      role: 'admin'
+    })
+  }
+})
+
 app.get('/posts', function (req, res) {
   res.send(posts)
 })
@@ -30,5 +39,5 @@ app.post('/posts', function (req, res) {
   const post = req.body
   post.id = posts.length + 1
   posts.push(post)
-  res.sendStatus(200)
+  res.send(post)
 })
